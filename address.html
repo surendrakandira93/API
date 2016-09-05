@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+
+
+    function goPopup() {
+        // 주소검색을 수행할 팝업 페이지를 호출합니다.
+        // 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+       	var pop = window.open("https://visionleadership.co.kr/jusoPopup.php","pop","width=570,height=420, scrollbars=yes, resizable=yes");
+        //  var pop = window.open("<?php echo site_url(); ?>/jusoPopup.php", "pop", "width=570,height=420, scrollbars=yes, resizable=yes");
+    }
+
+
+    function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail, roadAddrPart2, engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn) {
+        // 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+        document.getElementsByName("reg_addrOld")[0].value = roadFullAddr;
+        document.getElementsByName("reg_addrNew")[0].value = jibunAddr + " " + addrDetail;
+        document.getElementsByName("reg_post")[0].value = zipNo;
+
+
+    }
+
+    </script>
+
+</head>
+<body>
+
+
+    <input id="button" type="button" value=" 주소 검색 " style="height:29px; background-position:left -30px; background-Color:#9966FF; margin:3; padding:0; font-size:16px;" onclick="goPopup()" />
+
+
+    <div class="form-group">
+        <input name="reg_post" type="text" class="form-control login-field"
+               value="<?php echo(isset($_POST['reg_post']) ? $_POST['reg_post'] : null); ?>"
+               placeholder="우편번호" id="reg-post" readonly />
+        <label class="login-field-icon fui-user" for="reg-post"></label>
+    </div>
+    <div class="form-group">
+        <input name="reg_addrOld" type="text" class="form-control login-field"
+               value="<?php echo(isset($_POST['reg_addrOld']) ? $_POST['reg_addrOld'] : null); ?>"
+               placeholder="구주소" id="reg-addrOld" style="font-size:12pt; color:#000000; font-weight:bold;" required readonly />
+        <label class="login-field-icon fui-user" for="reg-addrOld"></label>
+    </div>
+    <div class="form-group">
+        <input name="reg_addrNew" type="text" class="form-control login-field"
+               value="<?php echo(isset($_POST['reg_addrNew']) ? $_POST['reg_addrNew'] : null); ?>"
+               placeholder="신주소" id="reg-addrNew" style="font-size:12pt; color:#000000; font-weight:bold;" required readonly />
+        <label class="login-field-icon fui-user" for="reg-addrNew"></label>
+    </div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
