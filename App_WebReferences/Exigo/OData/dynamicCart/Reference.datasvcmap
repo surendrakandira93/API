@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1f75d0a3-a71a-4332-91d4-ddd6dd2343f5" xmlns="urn:schemas-microsoft-com:xml-dataservicemap">
+  <MetadataSources>
+    <MetadataSource Address="https://api.exigo.com/4.0/fgi/db/dynamiccarts" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.edmx" MetadataType="Edmx" ID="9852556e-6f48-4f09-bbb4-496e6970748e" SourceId="1" SourceUrl="https://api.exigo.com/4.0/fgi/db/dynamiccarts" />
+  </Metadata>
+  <Extensions />
+  <Parameters />
+</ReferenceGroup>

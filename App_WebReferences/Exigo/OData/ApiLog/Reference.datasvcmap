@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a51ec57e-14c7-4b7e-b81f-ed85b8593587" xmlns="urn:schemas-microsoft-com:xml-dataservicemap">
+  <MetadataSources>
+    <MetadataSource Address="https://api.exigo.com/4.0/fgi/db/ApiLog" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.edmx" MetadataType="Edmx" ID="fa6c93c9-dc23-41da-9ee4-4d40faec6c38" SourceId="1" SourceUrl="https://api.exigo.com/4.0/fgi/db/ApiLog" />
+  </Metadata>
+  <Extensions />
+  <Parameters />
+</ReferenceGroup>

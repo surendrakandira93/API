@@ -1,0 +1,31 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+    <Schema Namespace="CodeFirstNamespace" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityType Name="ApiLogs">
+        <Key>
+          <PropertyRef Name="ApiLogID" />
+        </Key>
+        <Property Name="ApiLogID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="ApiCall" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Result" Type="Edm.Int32" Nullable="true" />
+        <Property Name="CreatedDate" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="Session" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="ErrorMessage" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="ServiceMethod" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+      </EntityType>
+      <EntityType Name="CallResult">
+        <Key>
+          <PropertyRef Name="CallResultID" />
+        </Key>
+        <Property Name="CallResultID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Description" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+      </EntityType>
+    </Schema>
+    <Schema Namespace="System.Data.Objects" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="ApiLog" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="ApiLogs" EntityType="CodeFirstNamespace.ApiLogs" />
+        <EntitySet Name="CallResult" EntityType="CodeFirstNamespace.CallResult" />
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

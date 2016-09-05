@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fca11562-5c1d-40a5-aabc-952f9540758e" xmlns="urn:schemas-microsoft-com:xml-dataservicemap">
+  <MetadataSources>
+    <MetadataSource Address="http://api.exigo.com/4.0/mialisia/model" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.edmx" MetadataType="Edmx" ID="3f41eb86-c6e1-484b-b08b-0790f8ae76c8" SourceId="1" SourceUrl="http://api.exigo.com/4.0/mialisia/model" />
+  </Metadata>
+  <Extensions />
+  <Parameters />
+</ReferenceGroup>

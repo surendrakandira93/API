@@ -1,0 +1,121 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+    <Schema Namespace="CodeFirstNamespace" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityType Name="AuthorizedUsers">
+        <Key>
+          <PropertyRef Name="AuthorizedUsersID" />
+        </Key>
+        <Property Name="AuthorizedUsersID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="CustomerID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="ModuleID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="PermittedCountries" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="Customer" Relationship="CodeFirstNamespace.AuthorizedUsers_Customer" FromRole="AuthorizedUsers_Customer_Source" ToRole="AuthorizedUsers_Customer_Target" />
+        <NavigationProperty Name="Modules" Relationship="CodeFirstNamespace.Modules_AuthorizedUsers" FromRole="Modules_AuthorizedUsers_Target" ToRole="Modules_AuthorizedUsers_Source" />
+      </EntityType>
+      <EntityType Name="Customer">
+        <Key>
+          <PropertyRef Name="CustomerID" />
+        </Key>
+        <Property Name="CustomerID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="None" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="FirstName" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="LastName" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Company" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Email" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Phone" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+      </EntityType>
+      <EntityType Name="Modules">
+        <Key>
+          <PropertyRef Name="ModuleID" />
+        </Key>
+        <Property Name="ModuleID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Description" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="AuthorizedUsers" Relationship="CodeFirstNamespace.Modules_AuthorizedUsers" FromRole="Modules_AuthorizedUsers_Source" ToRole="Modules_AuthorizedUsers_Target" />
+      </EntityType>
+      <EntityType Name="BlackList">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="CustomerID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="RestrictLeg" Type="Edm.Int32" Nullable="true" />
+        <NavigationProperty Name="Customer" Relationship="CodeFirstNamespace.BlackList_Customer" FromRole="BlackList_Customer_Source" ToRole="BlackList_Customer_Target" />
+      </EntityType>
+      <EntityType Name="Notice">
+        <Key>
+          <PropertyRef Name="NoticeID" />
+        </Key>
+        <Property Name="NoticeID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Title" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Content" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="StartDate" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="EndDate" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="IsActive" Type="Edm.Boolean" Nullable="true" />
+      </EntityType>
+      <EntityType Name="Rights">
+        <Key>
+          <PropertyRef Name="RightID" />
+        </Key>
+        <Property Name="RightID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Description" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+      </EntityType>
+      <Association Name="AuthorizedUsers_Customer">
+        <End Role="AuthorizedUsers_Customer_Source" Type="CodeFirstNamespace.AuthorizedUsers" Multiplicity="*" />
+        <End Role="AuthorizedUsers_Customer_Target" Type="CodeFirstNamespace.Customer" Multiplicity="0..1" />
+        <ReferentialConstraint>
+          <Principal Role="AuthorizedUsers_Customer_Target">
+            <PropertyRef Name="CustomerID" />
+          </Principal>
+          <Dependent Role="AuthorizedUsers_Customer_Source">
+            <PropertyRef Name="CustomerID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="Modules_AuthorizedUsers">
+        <End Role="Modules_AuthorizedUsers_Source" Type="CodeFirstNamespace.Modules" Multiplicity="0..1" />
+        <End Role="Modules_AuthorizedUsers_Target" Type="CodeFirstNamespace.AuthorizedUsers" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Modules_AuthorizedUsers_Source">
+            <PropertyRef Name="ModuleID" />
+          </Principal>
+          <Dependent Role="Modules_AuthorizedUsers_Target">
+            <PropertyRef Name="ModuleID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="BlackList_Customer">
+        <End Role="BlackList_Customer_Source" Type="CodeFirstNamespace.BlackList" Multiplicity="*" />
+        <End Role="BlackList_Customer_Target" Type="CodeFirstNamespace.Customer" Multiplicity="0..1" />
+        <ReferentialConstraint>
+          <Principal Role="BlackList_Customer_Target">
+            <PropertyRef Name="CustomerID" />
+          </Principal>
+          <Dependent Role="BlackList_Customer_Source">
+            <PropertyRef Name="CustomerID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+    </Schema>
+    <Schema Namespace="System.Data.Objects" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="authorization" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="AuthorizedUsers" EntityType="CodeFirstNamespace.AuthorizedUsers" />
+        <EntitySet Name="ExigoCustomers" EntityType="CodeFirstNamespace.Customer" />
+        <EntitySet Name="Modules" EntityType="CodeFirstNamespace.Modules" />
+        <EntitySet Name="BlackList" EntityType="CodeFirstNamespace.BlackList" />
+        <EntitySet Name="Notice" EntityType="CodeFirstNamespace.Notice" />
+        <EntitySet Name="Rights" EntityType="CodeFirstNamespace.Rights" />
+        <AssociationSet Name="AuthorizedUsers_Customer" Association="CodeFirstNamespace.AuthorizedUsers_Customer">
+          <End Role="AuthorizedUsers_Customer_Source" EntitySet="AuthorizedUsers" />
+          <End Role="AuthorizedUsers_Customer_Target" EntitySet="ExigoCustomers" />
+        </AssociationSet>
+        <AssociationSet Name="Modules_AuthorizedUsers" Association="CodeFirstNamespace.Modules_AuthorizedUsers">
+          <End Role="Modules_AuthorizedUsers_Source" EntitySet="Modules" />
+          <End Role="Modules_AuthorizedUsers_Target" EntitySet="AuthorizedUsers" />
+        </AssociationSet>
+        <AssociationSet Name="BlackList_Customer" Association="CodeFirstNamespace.BlackList_Customer">
+          <End Role="BlackList_Customer_Source" EntitySet="BlackList" />
+          <End Role="BlackList_Customer_Target" EntitySet="ExigoCustomers" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

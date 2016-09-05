@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ExigoWebService" />
+  <xs:import schemaLocation="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/VendorWebService" />
+  <xs:element name="GetCardMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vendor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCardMemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ExigoWebService" minOccurs="0" name="GetCardMemberResult" nillable="true" type="q1:GetCustomReportResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberDetailsCustom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vendor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CustomerIdFrom" type="xs:int" />
+        <xs:element minOccurs="0" name="ThruCustomerId" type="xs:int" />
+        <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberDetailsCustomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/VendorWebService" minOccurs="0" name="GetMemberDetailsCustomResult" nillable="true" type="q2:ArrayOfVendorModel.CardMemberDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vendor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CustomerIdFrom" type="xs:int" />
+        <xs:element minOccurs="0" name="ThruCustomerId" type="xs:int" />
+        <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/VendorWebService" minOccurs="0" name="GetMemberDetailsResult" nillable="true" type="q3:ArrayOfVendorModel.CardMemberDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCardData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vendor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCardDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ExigoWebService" minOccurs="0" name="GetCardDataResult" nillable="true" type="q4:GetCustomReportResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGiftCardBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vendor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CustomerID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGiftCardBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ExigoWebService" minOccurs="0" name="GetGiftCardBalanceResult" nillable="true" type="q5:GetPointAccountResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vendor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CustomerIdFrom" type="xs:int" />
+        <xs:element minOccurs="0" name="CustomerIdUpto" type="xs:int" />
+        <xs:element minOccurs="0" name="OrderIdFrom" type="xs:int" />
+        <xs:element minOccurs="0" name="OrderIdUpTo" type="xs:int" />
+        <xs:element minOccurs="0" name="ModifiedDateFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ModifiedDateUpto" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="OrderDateFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="OrderDateUpto" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="GCQtyGreaterEqual" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/VendorWebService" minOccurs="0" name="GetOrderDetailsResult" nillable="true" type="q6:ArrayOfVendorModel.CustomerOrderDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsVerifiedAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vendor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stateCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="zipCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsVerifiedAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsVerifiedAddressResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderDetails_EU">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vendor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CustomerIdFrom" type="xs:int" />
+        <xs:element minOccurs="0" name="CustomerIdUpto" type="xs:int" />
+        <xs:element minOccurs="0" name="OrderIdFrom" type="xs:int" />
+        <xs:element minOccurs="0" name="OrderIdUpTo" type="xs:int" />
+        <xs:element minOccurs="0" name="ModifiedDateFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ModifiedDateUpto" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="OrderDateFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="OrderDateUpto" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="GCQtyGreaterEqual" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderDetails_EUResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/VendorWebService" minOccurs="0" name="GetOrderDetails_EUResult" nillable="true" type="q7:ArrayOfVendorModel.CustomerOrderDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vendor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ExigoWebService" minOccurs="0" name="AuthenticateCustomerResult" nillable="true" type="q8:AuthenticateCustomerResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

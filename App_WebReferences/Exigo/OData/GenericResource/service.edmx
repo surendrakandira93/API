@@ -1,0 +1,134 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+    <Schema Namespace="CodeFirstNamespace" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityType Name="GenericResourceActionTypes">
+        <Key>
+          <PropertyRef Name="ResourceActionTypeID" />
+        </Key>
+        <Property Name="ResourceActionTypeID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="ResourceActionTypeDescription" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="DisplayName" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="GenericResources" Relationship="CodeFirstNamespace.GenericResources_GenericResourceActionTypes" FromRole="GenericResources_GenericResourceActionTypes_Target" ToRole="GenericResources_GenericResourceActionTypes_Source" />
+      </EntityType>
+      <EntityType Name="GenericResources">
+        <Key>
+          <PropertyRef Name="ResourceID" />
+        </Key>
+        <Property Name="ResourceID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Title" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Description" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Url" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="CreatedDate" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="ResourceCategoryID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="ResourceStatusID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="ResourceActionTypeID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="Tags" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="AllowedUserTypes" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="YouTubeUrl" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="GenericResourceTypeID" Type="Edm.Int32" Nullable="true" />
+        <NavigationProperty Name="GenericResourceActionTypes" Relationship="CodeFirstNamespace.GenericResources_GenericResourceActionTypes" FromRole="GenericResources_GenericResourceActionTypes_Source" ToRole="GenericResources_GenericResourceActionTypes_Target" />
+        <NavigationProperty Name="GenericResourceTypes" Relationship="CodeFirstNamespace.GenericResourceTypes_GenericResources" FromRole="GenericResourceTypes_GenericResources_Target" ToRole="GenericResourceTypes_GenericResources_Source" />
+      </EntityType>
+      <EntityType Name="GenericResourceTypes">
+        <Key>
+          <PropertyRef Name="GenericResourceTypeID" />
+        </Key>
+        <Property Name="GenericResourceTypeID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Description" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="GenericResources" Relationship="CodeFirstNamespace.GenericResourceTypes_GenericResources" FromRole="GenericResourceTypes_GenericResources_Source" ToRole="GenericResourceTypes_GenericResources_Target" />
+      </EntityType>
+      <EntityType Name="GenericResourceCategories">
+        <Key>
+          <PropertyRef Name="ResourceCategoryID" />
+        </Key>
+        <Property Name="ResourceCategoryID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="ResourceCategoryDescription" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+      </EntityType>
+      <EntityType Name="GenericResourceStatuses">
+        <Key>
+          <PropertyRef Name="ResourceStatusID" />
+        </Key>
+        <Property Name="ResourceStatusID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="ResourceStatusDescription" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+      </EntityType>
+      <EntityType Name="GenericResourceTags">
+        <Key>
+          <PropertyRef Name="ResourceTagID" />
+        </Key>
+        <Property Name="ResourceTagID" Type="Edm.String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" p8:StoreGeneratedPattern="None" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="ResourceTagTypeID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="ResourceTagDescription" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Active" Type="Edm.Boolean" Nullable="true" />
+        <NavigationProperty Name="GenericResourceTagTypes" Relationship="CodeFirstNamespace.GenericResourceTagTypes_GenericResourceTags" FromRole="GenericResourceTagTypes_GenericResourceTags_Target" ToRole="GenericResourceTagTypes_GenericResourceTags_Source" />
+      </EntityType>
+      <EntityType Name="GenericResourceTagTypes">
+        <Key>
+          <PropertyRef Name="ResourceTagTypeID" />
+        </Key>
+        <Property Name="ResourceTagTypeID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="ResourceTagTypeDescription" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Active" Type="Edm.Boolean" Nullable="true" />
+        <NavigationProperty Name="GenericResourceTags" Relationship="CodeFirstNamespace.GenericResourceTagTypes_GenericResourceTags" FromRole="GenericResourceTagTypes_GenericResourceTags_Source" ToRole="GenericResourceTagTypes_GenericResourceTags_Target" />
+      </EntityType>
+      <Association Name="GenericResources_GenericResourceActionTypes">
+        <End Role="GenericResources_GenericResourceActionTypes_Source" Type="CodeFirstNamespace.GenericResources" Multiplicity="*" />
+        <End Role="GenericResources_GenericResourceActionTypes_Target" Type="CodeFirstNamespace.GenericResourceActionTypes" Multiplicity="0..1" />
+        <ReferentialConstraint>
+          <Principal Role="GenericResources_GenericResourceActionTypes_Target">
+            <PropertyRef Name="ResourceActionTypeID" />
+          </Principal>
+          <Dependent Role="GenericResources_GenericResourceActionTypes_Source">
+            <PropertyRef Name="ResourceActionTypeID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="GenericResourceTypes_GenericResources">
+        <End Role="GenericResourceTypes_GenericResources_Source" Type="CodeFirstNamespace.GenericResourceTypes" Multiplicity="0..1" />
+        <End Role="GenericResourceTypes_GenericResources_Target" Type="CodeFirstNamespace.GenericResources" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="GenericResourceTypes_GenericResources_Source">
+            <PropertyRef Name="GenericResourceTypeID" />
+          </Principal>
+          <Dependent Role="GenericResourceTypes_GenericResources_Target">
+            <PropertyRef Name="GenericResourceTypeID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="GenericResourceTagTypes_GenericResourceTags">
+        <End Role="GenericResourceTagTypes_GenericResourceTags_Source" Type="CodeFirstNamespace.GenericResourceTagTypes" Multiplicity="0..1" />
+        <End Role="GenericResourceTagTypes_GenericResourceTags_Target" Type="CodeFirstNamespace.GenericResourceTags" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="GenericResourceTagTypes_GenericResourceTags_Source">
+            <PropertyRef Name="ResourceTagTypeID" />
+          </Principal>
+          <Dependent Role="GenericResourceTagTypes_GenericResourceTags_Target">
+            <PropertyRef Name="ResourceTagTypeID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+    </Schema>
+    <Schema Namespace="System.Data.Objects" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="genericresourcedatacontext" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="GenericResourceActionTypes" EntityType="CodeFirstNamespace.GenericResourceActionTypes" />
+        <EntitySet Name="GenericResources" EntityType="CodeFirstNamespace.GenericResources" />
+        <EntitySet Name="GenericResourceTypes" EntityType="CodeFirstNamespace.GenericResourceTypes" />
+        <EntitySet Name="GenericResourceCategories" EntityType="CodeFirstNamespace.GenericResourceCategories" />
+        <EntitySet Name="GenericResourceStatuses" EntityType="CodeFirstNamespace.GenericResourceStatuses" />
+        <EntitySet Name="GenericResourceTags" EntityType="CodeFirstNamespace.GenericResourceTags" />
+        <EntitySet Name="GenericResourceTagTypes" EntityType="CodeFirstNamespace.GenericResourceTagTypes" />
+        <AssociationSet Name="GenericResources_GenericResourceActionTypes" Association="CodeFirstNamespace.GenericResources_GenericResourceActionTypes">
+          <End Role="GenericResources_GenericResourceActionTypes_Source" EntitySet="GenericResources" />
+          <End Role="GenericResources_GenericResourceActionTypes_Target" EntitySet="GenericResourceActionTypes" />
+        </AssociationSet>
+        <AssociationSet Name="GenericResourceTypes_GenericResources" Association="CodeFirstNamespace.GenericResourceTypes_GenericResources">
+          <End Role="GenericResourceTypes_GenericResources_Source" EntitySet="GenericResourceTypes" />
+          <End Role="GenericResourceTypes_GenericResources_Target" EntitySet="GenericResources" />
+        </AssociationSet>
+        <AssociationSet Name="GenericResourceTagTypes_GenericResourceTags" Association="CodeFirstNamespace.GenericResourceTagTypes_GenericResourceTags">
+          <End Role="GenericResourceTagTypes_GenericResourceTags_Source" EntitySet="GenericResourceTagTypes" />
+          <End Role="GenericResourceTagTypes_GenericResourceTags_Target" EntitySet="GenericResourceTags" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

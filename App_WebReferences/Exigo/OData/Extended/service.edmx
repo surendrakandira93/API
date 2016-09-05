@@ -1,0 +1,173 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+    <Schema Namespace="CodeFirstNamespace" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityType Name="Calendar">
+        <Key>
+          <PropertyRef Name="CalendarID" />
+        </Key>
+        <Property Name="CalendarID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="CustomerID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="CalendarStatusID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="Description" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="CalendarPrivacyTypeID" Type="Edm.Int32" Nullable="true" />
+        <NavigationProperty Name="Customer" Relationship="CodeFirstNamespace.Calendar_Customer" FromRole="Calendar_Customer_Source" ToRole="Calendar_Customer_Target" />
+      </EntityType>
+      <EntityType Name="Customer">
+        <Key>
+          <PropertyRef Name="CustomerID" />
+        </Key>
+        <Property Name="CustomerID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="None" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="FirstName" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="LastName" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Company" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Email" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Phone" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+      </EntityType>
+      <EntityType Name="CalendarItem">
+        <Key>
+          <PropertyRef Name="CalendarItemID" />
+        </Key>
+        <Property Name="CalendarItemID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="CustomerID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="CalendarID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="CalendarItemTypeID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="Title" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Description" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="StartDate" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="EndDate" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="CalendarItemStatusID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="CalendarItemRepeatTypeID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="Location" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="AllDay" Type="Edm.Boolean" Nullable="true" />
+        <Property Name="CalendarPrivacyTypeID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="IsCorporate" Type="Edm.Boolean" Nullable="true" />
+        <Property Name="TimeZoneOffset" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="PriorityTypeID" Type="Edm.Int32" Nullable="true" />
+        <NavigationProperty Name="Customer" Relationship="CodeFirstNamespace.CalendarItem_Customer" FromRole="CalendarItem_Customer_Source" ToRole="CalendarItem_Customer_Target" />
+        <NavigationProperty Name="CalendarItemRepeatType" Relationship="CodeFirstNamespace.CalendarItemRepeatType_CalendarItems" FromRole="CalendarItemRepeatType_CalendarItems_Target" ToRole="CalendarItemRepeatType_CalendarItems_Source" />
+        <NavigationProperty Name="CalendarPriorityTypes" Relationship="CodeFirstNamespace.CalendarPriorityTypes_CalendarItems" FromRole="CalendarPriorityTypes_CalendarItems_Target" ToRole="CalendarPriorityTypes_CalendarItems_Source" />
+      </EntityType>
+      <EntityType Name="CalendarItemRepeatType">
+        <Key>
+          <PropertyRef Name="CalendarItemRepeatTypeID" />
+        </Key>
+        <Property Name="CalendarItemRepeatTypeID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="CalendarItemRepeatTypeDescription" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="CalendarItems" Relationship="CodeFirstNamespace.CalendarItemRepeatType_CalendarItems" FromRole="CalendarItemRepeatType_CalendarItems_Source" ToRole="CalendarItemRepeatType_CalendarItems_Target" />
+      </EntityType>
+      <EntityType Name="CalendarPriorityTypes">
+        <Key>
+          <PropertyRef Name="PriorityTypeID" />
+        </Key>
+        <Property Name="PriorityTypeID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="PriorityTypeDesc" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="CalendarItems" Relationship="CodeFirstNamespace.CalendarPriorityTypes_CalendarItems" FromRole="CalendarPriorityTypes_CalendarItems_Source" ToRole="CalendarPriorityTypes_CalendarItems_Target" />
+      </EntityType>
+      <EntityType Name="CalendarItemStatus">
+        <Key>
+          <PropertyRef Name="CalendarItemStatusID" />
+        </Key>
+        <Property Name="CalendarItemStatusID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="CalendarItemStatusDescription" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+      </EntityType>
+      <EntityType Name="CalendarItemType">
+        <Key>
+          <PropertyRef Name="CalendarItemTypeID" />
+        </Key>
+        <Property Name="CalendarItemTypeID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="CalendarItemTypeDescription" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+      </EntityType>
+      <EntityType Name="CalendarPrivacyType">
+        <Key>
+          <PropertyRef Name="CalendarPrivacyTypeID" />
+        </Key>
+        <Property Name="CalendarPrivacyTypeID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="CalendarPrivacyTypeDescription" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+      </EntityType>
+      <EntityType Name="CalendarStatus">
+        <Key>
+          <PropertyRef Name="CalendarStatusID" />
+        </Key>
+        <Property Name="CalendarStatusID" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="CalendarStatusDescription" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+      </EntityType>
+      <Association Name="Calendar_Customer">
+        <End Role="Calendar_Customer_Source" Type="CodeFirstNamespace.Calendar" Multiplicity="*" />
+        <End Role="Calendar_Customer_Target" Type="CodeFirstNamespace.Customer" Multiplicity="0..1" />
+        <ReferentialConstraint>
+          <Principal Role="Calendar_Customer_Target">
+            <PropertyRef Name="CustomerID" />
+          </Principal>
+          <Dependent Role="Calendar_Customer_Source">
+            <PropertyRef Name="CustomerID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="CalendarItem_Customer">
+        <End Role="CalendarItem_Customer_Source" Type="CodeFirstNamespace.CalendarItem" Multiplicity="*" />
+        <End Role="CalendarItem_Customer_Target" Type="CodeFirstNamespace.Customer" Multiplicity="0..1" />
+        <ReferentialConstraint>
+          <Principal Role="CalendarItem_Customer_Target">
+            <PropertyRef Name="CustomerID" />
+          </Principal>
+          <Dependent Role="CalendarItem_Customer_Source">
+            <PropertyRef Name="CustomerID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="CalendarItemRepeatType_CalendarItems">
+        <End Role="CalendarItemRepeatType_CalendarItems_Source" Type="CodeFirstNamespace.CalendarItemRepeatType" Multiplicity="0..1" />
+        <End Role="CalendarItemRepeatType_CalendarItems_Target" Type="CodeFirstNamespace.CalendarItem" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="CalendarItemRepeatType_CalendarItems_Source">
+            <PropertyRef Name="CalendarItemRepeatTypeID" />
+          </Principal>
+          <Dependent Role="CalendarItemRepeatType_CalendarItems_Target">
+            <PropertyRef Name="CalendarItemRepeatTypeID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="CalendarPriorityTypes_CalendarItems">
+        <End Role="CalendarPriorityTypes_CalendarItems_Source" Type="CodeFirstNamespace.CalendarPriorityTypes" Multiplicity="0..1" />
+        <End Role="CalendarPriorityTypes_CalendarItems_Target" Type="CodeFirstNamespace.CalendarItem" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="CalendarPriorityTypes_CalendarItems_Source">
+            <PropertyRef Name="PriorityTypeID" />
+          </Principal>
+          <Dependent Role="CalendarPriorityTypes_CalendarItems_Target">
+            <PropertyRef Name="PriorityTypeID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+    </Schema>
+    <Schema Namespace="System.Data.Objects" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="extendeddatacontext" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="Calendars" EntityType="CodeFirstNamespace.Calendar" />
+        <EntitySet Name="ExigoCustomers" EntityType="CodeFirstNamespace.Customer" />
+        <EntitySet Name="CalendarItems" EntityType="CodeFirstNamespace.CalendarItem" />
+        <EntitySet Name="CalendarItemRepeatTypes" EntityType="CodeFirstNamespace.CalendarItemRepeatType" />
+        <EntitySet Name="CalendarPriorityTypes" EntityType="CodeFirstNamespace.CalendarPriorityTypes" />
+        <EntitySet Name="CalendarItemStatuses" EntityType="CodeFirstNamespace.CalendarItemStatus" />
+        <EntitySet Name="CalendarItemTypes" EntityType="CodeFirstNamespace.CalendarItemType" />
+        <EntitySet Name="CalendarPrivacyTypes" EntityType="CodeFirstNamespace.CalendarPrivacyType" />
+        <EntitySet Name="CalendarStatuses" EntityType="CodeFirstNamespace.CalendarStatus" />
+        <AssociationSet Name="Calendar_Customer" Association="CodeFirstNamespace.Calendar_Customer">
+          <End Role="Calendar_Customer_Source" EntitySet="Calendars" />
+          <End Role="Calendar_Customer_Target" EntitySet="ExigoCustomers" />
+        </AssociationSet>
+        <AssociationSet Name="CalendarItem_Customer" Association="CodeFirstNamespace.CalendarItem_Customer">
+          <End Role="CalendarItem_Customer_Source" EntitySet="CalendarItems" />
+          <End Role="CalendarItem_Customer_Target" EntitySet="ExigoCustomers" />
+        </AssociationSet>
+        <AssociationSet Name="CalendarItemRepeatType_CalendarItems" Association="CodeFirstNamespace.CalendarItemRepeatType_CalendarItems">
+          <End Role="CalendarItemRepeatType_CalendarItems_Source" EntitySet="CalendarItemRepeatTypes" />
+          <End Role="CalendarItemRepeatType_CalendarItems_Target" EntitySet="CalendarItems" />
+        </AssociationSet>
+        <AssociationSet Name="CalendarPriorityTypes_CalendarItems" Association="CodeFirstNamespace.CalendarPriorityTypes_CalendarItems">
+          <End Role="CalendarPriorityTypes_CalendarItems_Source" EntitySet="CalendarPriorityTypes" />
+          <End Role="CalendarPriorityTypes_CalendarItems_Target" EntitySet="CalendarItems" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

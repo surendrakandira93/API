@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VendorWebService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VendorWebService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfVendorModel.CardMemberDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VendorModel.CardMemberDetails" nillable="true" type="tns:VendorModel.CardMemberDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVendorModel.CardMemberDetails" nillable="true" type="tns:ArrayOfVendorModel.CardMemberDetails" />
+  <xs:complexType name="VendorModel.CardMemberDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Alias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastOrderdate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobilePhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VendorModel.CardMemberDetails" nillable="true" type="tns:VendorModel.CardMemberDetails" />
+  <xs:complexType name="ArrayOfVendorModel.CustomerOrderDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VendorModel.CustomerOrderDetails" nillable="true" type="tns:VendorModel.CustomerOrderDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVendorModel.CustomerOrderDetails" nillable="true" type="tns:ArrayOfVendorModel.CustomerOrderDetails" />
+  <xs:complexType name="VendorModel.CustomerOrderDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CardNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OrderId" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderStatusId" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="QtyGC" type="xs:int" />
+      <xs:element minOccurs="0" name="QtyGC_EU" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VendorModel.CustomerOrderDetails" nillable="true" type="tns:VendorModel.CustomerOrderDetails" />
+</xs:schema>

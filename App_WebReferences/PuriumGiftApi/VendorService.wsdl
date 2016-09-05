@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VendorService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ExigoWebService" />
+      <xsd:import schemaLocation="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?xsd=xsd4" />
+      <xsd:import schemaLocation="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/VendorWebService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IVendorService_GetCardMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardMember" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_GetCardMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_GetMemberDetailsCustom_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberDetailsCustom" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_GetMemberDetailsCustom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberDetailsCustomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_GetMemberDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberDetails" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_GetMemberDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_GetCardData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardData" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_GetCardData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_GetGiftCardBalance_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGiftCardBalance" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_GetGiftCardBalance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGiftCardBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_GetOrderDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderDetails" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_GetOrderDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_IsVerifiedAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsVerifiedAddress" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_IsVerifiedAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsVerifiedAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_GetOrderDetails_EU_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderDetails_EU" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_GetOrderDetails_EU_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderDetails_EUResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_AuthenticateCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IVendorService_AuthenticateCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IVendorService">
+    <wsdl:operation name="GetCardMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVendorService/GetCardMember" message="tns:IVendorService_GetCardMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVendorService/GetCardMemberResponse" message="tns:IVendorService_GetCardMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberDetailsCustom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVendorService/GetMemberDetailsCustom" message="tns:IVendorService_GetMemberDetailsCustom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVendorService/GetMemberDetailsCustomResponse" message="tns:IVendorService_GetMemberDetailsCustom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVendorService/GetMemberDetails" message="tns:IVendorService_GetMemberDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVendorService/GetMemberDetailsResponse" message="tns:IVendorService_GetMemberDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVendorService/GetCardData" message="tns:IVendorService_GetCardData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVendorService/GetCardDataResponse" message="tns:IVendorService_GetCardData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGiftCardBalance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVendorService/GetGiftCardBalance" message="tns:IVendorService_GetGiftCardBalance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVendorService/GetGiftCardBalanceResponse" message="tns:IVendorService_GetGiftCardBalance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVendorService/GetOrderDetails" message="tns:IVendorService_GetOrderDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVendorService/GetOrderDetailsResponse" message="tns:IVendorService_GetOrderDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsVerifiedAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVendorService/IsVerifiedAddress" message="tns:IVendorService_IsVerifiedAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVendorService/IsVerifiedAddressResponse" message="tns:IVendorService_IsVerifiedAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails_EU">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVendorService/GetOrderDetails_EU" message="tns:IVendorService_GetOrderDetails_EU_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVendorService/GetOrderDetails_EUResponse" message="tns:IVendorService_GetOrderDetails_EU_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVendorService/AuthenticateCustomer" message="tns:IVendorService_AuthenticateCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVendorService/AuthenticateCustomerResponse" message="tns:IVendorService_AuthenticateCustomer_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Ws" type="tns:IVendorService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCardMember">
+      <soap:operation soapAction="http://tempuri.org/IVendorService/GetCardMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberDetailsCustom">
+      <soap:operation soapAction="http://tempuri.org/IVendorService/GetMemberDetailsCustom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberDetails">
+      <soap:operation soapAction="http://tempuri.org/IVendorService/GetMemberDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardData">
+      <soap:operation soapAction="http://tempuri.org/IVendorService/GetCardData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGiftCardBalance">
+      <soap:operation soapAction="http://tempuri.org/IVendorService/GetGiftCardBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails">
+      <soap:operation soapAction="http://tempuri.org/IVendorService/GetOrderDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsVerifiedAddress">
+      <soap:operation soapAction="http://tempuri.org/IVendorService/IsVerifiedAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails_EU">
+      <soap:operation soapAction="http://tempuri.org/IVendorService/GetOrderDetails_EU" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateCustomer">
+      <soap:operation soapAction="http://tempuri.org/IVendorService/AuthenticateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VendorService">
+    <wsdl:port name="Ws" binding="tns:Ws">
+      <soap:address location="http://newphpgiftapi.wsicloud.com/VendorWebService.svc/VendorWebService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

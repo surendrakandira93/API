@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a92b5843-2aad-40ee-95ee-90ffb39593c0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://newphpgiftapi.wsicloud.com/VendorWebService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="VendorWebService.xsd" MetadataType="Schema" ID="73369fd4-01ac-4c01-95d4-eeca39284e1a" SourceId="1" SourceUrl="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?xsd=xsd1" />
+    <MetadataFile FileName="VendorWebService1.xsd" MetadataType="Schema" ID="16225738-9dd4-4992-8948-fcc120c3ba07" SourceId="1" SourceUrl="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?xsd=xsd0" />
+    <MetadataFile FileName="VendorWebService2.xsd" MetadataType="Schema" ID="1b5b70b2-75f2-4026-b659-7caa5b6c5cba" SourceId="1" SourceUrl="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?xsd=xsd2" />
+    <MetadataFile FileName="VendorService.wsdl" MetadataType="Wsdl" ID="5e89525f-4272-49a5-b053-1b4fef580972" SourceId="1" SourceUrl="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?wsdl" />
+    <MetadataFile FileName="VendorWebService3.xsd" MetadataType="Schema" ID="612ea3b2-762b-423b-b084-32a7c284f85b" SourceId="1" SourceUrl="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?xsd=xsd3" />
+    <MetadataFile FileName="VendorWebService4.xsd" MetadataType="Schema" ID="856887be-9e3e-4d3a-9efc-1b7780e272a3" SourceId="1" SourceUrl="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?xsd=xsd5" />
+    <MetadataFile FileName="VendorWebService5.xsd" MetadataType="Schema" ID="6b8bebf3-dc70-4822-baa5-2b9c4fcbff08" SourceId="1" SourceUrl="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?xsd=xsd4" />
+    <MetadataFile FileName="VendorWebService.disco" MetadataType="Disco" ID="d6c70dd5-812d-43b3-bacf-a1c95aa8dea2" SourceId="1" SourceUrl="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

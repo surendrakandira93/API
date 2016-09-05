@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ExigoWebService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ExigoWebService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://newphpgiftapi.wsicloud.com/VendorWebService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="GetCustomReportResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ApiResponse">
+        <xs:sequence>
+          <xs:element name="reportDataField" nillable="true">
+            <xs:complexType>
+              <xs:annotation>
+                <xs:appinfo>
+                  <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:sequence>
+                <xs:element ref="xs:schema" />
+                <xs:any />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCustomReportResponse" nillable="true" type="tns:GetCustomReportResponse" />
+  <xs:complexType name="ApiResponse">
+    <xs:sequence>
+      <xs:element name="resultField" nillable="true" type="tns:ApiResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiResponse" nillable="true" type="tns:ApiResponse" />
+  <xs:complexType name="ApiResult">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="errorsField" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element name="statusField" type="tns:ResultStatus" />
+      <xs:element name="transactionKeyField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiResult" nillable="true" type="tns:ApiResult" />
+  <xs:simpleType name="ResultStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="Failure" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ResultStatus" nillable="true" type="tns:ResultStatus" />
+  <xs:complexType name="GetPointAccountResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ApiResponse">
+        <xs:sequence>
+          <xs:element name="balanceField" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPointAccountResponse" nillable="true" type="tns:GetPointAccountResponse" />
+  <xs:complexType name="AuthenticateCustomerResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ApiResponse">
+        <xs:sequence>
+          <xs:element name="customerIDField" type="xs:int" />
+          <xs:element name="firstNameField" nillable="true" type="xs:string" />
+          <xs:element name="lastNameField" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AuthenticateCustomerResponse" nillable="true" type="tns:AuthenticateCustomerResponse" />
+</xs:schema>
